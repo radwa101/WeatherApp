@@ -1,0 +1,15 @@
+c:\users\a0679804\documents\visual studio 2015\Projects\WeatherService\bin\Debug\WeatherService.dll.config
+c:\users\a0679804\documents\visual studio 2015\Projects\WeatherService\bin\Debug\WeatherService.dll
+c:\users\a0679804\documents\visual studio 2015\Projects\WeatherService\bin\Debug\WeatherService.pdb
+c:\users\a0679804\documents\visual studio 2015\Projects\WeatherService\obj\Debug\WeatherService.dll
+c:\users\a0679804\documents\visual studio 2015\Projects\WeatherService\obj\Debug\WeatherService.pdb
+C:\Users\projects\server\WeatherService\bin\Debug\WeatherService.dll.config
+C:\Users\projects\server\WeatherService\bin\Debug\WeatherService.dll
+C:\Users\projects\server\WeatherService\bin\Debug\WeatherService.pdb
+C:\Users\projects\server\WeatherService\bin\Debug\EntityFramework.dll
+C:\Users\projects\server\WeatherService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\projects\server\WeatherService\bin\Debug\EntityFramework.xml
+C:\Users\projects\server\WeatherService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\projects\server\WeatherService\obj\Debug\WeatherService.csproj.CoreCompileInputs.cache
+C:\Users\projects\server\WeatherService\obj\Debug\WeatherService.dll
+C:\Users\projects\server\WeatherService\obj\Debug\WeatherService.pdb
