@@ -1,0 +1,45 @@
+body {
+  background-color:#f1f1f1;
+  padding: 20px;
+  margin: 0;
+}
+h1, h2, p, ul, li {
+  margin-top: 40px;
+  font-family: sans-serif;
+}
+ul li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+ul {
+  background-color: #468ee5;
+  padding: 0;
+}
+ul li a {
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+}
+.weatherContent {
+  background-color: #FFF;
+  padding: 20px;
+}
+.weatherContent h2 {
+  padding: 0;
+  margin: 0;
+}
+.weatherContent li {
+  margin-bottom: 10px;
+}
+.active {
+  text-decoration-line: underline !important;
+  color: #fff;
+}
+a:focus, 
+a:hover {
+    color: #fff !important;
+    text-decoration: underline !important;
+}

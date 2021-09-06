@@ -1,0 +1,67 @@
+body {
+  background-color:#f1f1f1;
+  padding: 20px;
+  margin: 0;
+}
+h1, h2, p, ul, li {
+  font-family: sans-serif;
+}
+h1 {
+  margin-top: 30px;
+}
+ul:global(.weatherMenu) li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+ul:global(.weatherMenu) {
+  background-color: #468ee5;
+  padding: 0;
+}
+ul:global(.weatherMenu) li a {
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+}
+:global(.weatherContent) {
+  padding: 5px;
+}
+:global(.weatherContent) h2 {
+  padding: 0;
+  margin: 0;
+}
+:global(.weatherContent) li {
+  margin-bottom: 10px;
+}
+:global(.active) {
+  text-decoration-line: underline !important;
+}
+:global(.loader) {
+  border: 16px solid lightblue;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+:global(.relativeWrapper) {
+  position: relative;
+  height: 1000px;
+}
+:global(.absoluteWrapper) {
+  position: absolute;
+  width: 100%;
+}
+:global(.css-10nd86i) {
+  width: 275px;
+}
+:global(.react-grid-Toolbar) {
+  width: 129px;
+}
