@@ -19,14 +19,14 @@ namespace WeatherWcf
 
         public List<Location> GetWorldTemperatures()
         {
-            string htmlContents = weatherReader.Download(new Uri(configManager.GetAppSetting("WorldWeatherUrl") + "weather/"));
+            string htmlContents = weatherReader.Download(configManager.GetAppSetting("WorldWeatherUrl") + "weather/");
             return htmlScraper.GetCities(htmlContents);
         }
 
         public Weather_Response GetWorldTemperaturesSoap(Weather_Request request)
         {
             Weather_Response response = new Weather_Response();
-            string htmlContents = weatherReader.Download(new Uri(configManager.GetAppSetting("WorldWeatherUrl") + "weather/"));
+            string htmlContents = weatherReader.Download(configManager.GetAppSetting("WorldWeatherUrl") + "weather/");
             response.locations = htmlScraper.GetCities(htmlContents);
             request.City = request.City ?? string.Empty;
             response.locations = response.locations.Where(l => l.City.Contains(request.City)).ToList();
@@ -36,7 +36,7 @@ namespace WeatherWcf
         public Weather_Response WeatherInfo(Weather_Request request)
         {
             Weather_Response response = new Weather_Response();
-            string htmlContents = weatherReader.Download(new Uri(configManager.GetAppSetting("WorldWeatherUrl") + "weather/"));
+            string htmlContents = weatherReader.Download(configManager.GetAppSetting("WorldWeatherUrl") + "weather/");
             response.locations = htmlScraper.GetCities(htmlContents);
             request.City = request.City ?? string.Empty;
             response.locations = response.locations.Where(l => l.City.Contains(request.City)).ToList();
@@ -45,13 +45,13 @@ namespace WeatherWcf
 
         public List<Location> GetEuropeanTemperatures()
         {
-            string htmlContents = weatherReader.Download(new Uri(configManager.GetAppSetting("WorldWeatherUrl") + "weather/?continent=europe"));
+            string htmlContents = weatherReader.Download(configManager.GetAppSetting("WorldWeatherUrl") + "weather/?continent=europe");
             return htmlScraper.GetCities(htmlContents);
         }
 
         public string GetForecastData(string filter, string filterTable)
         {
-            string htmlContents = weatherReader.Download(new Uri(configManager.GetAppSetting("WorldWeatherUrl") + filter));
+            string htmlContents = weatherReader.Download(configManager.GetAppSetting("WorldWeatherUrl") + filter);
             return htmlScraper.GetForecastData(htmlContents, filterTable);
         }
     }
