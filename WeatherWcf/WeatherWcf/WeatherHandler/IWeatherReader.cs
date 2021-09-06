@@ -8,6 +8,6 @@ namespace WeatherWcf.WeatherHandler
 {
     public interface IWeatherReader
     {
-        string Download(Uri file);
+        string Download(string file);
     }
 }
