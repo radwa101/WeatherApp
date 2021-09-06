@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ba8b5b22-6d38-4fa3-9d95-9ad3ff01d755" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:83/DummyService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DummyService1.xsd" MetadataType="Schema" ID="3d243aff-8c71-4ee5-bbfa-4d78c7ff031e" SourceId="1" SourceUrl="http://localhost:83/DummyService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DummyService.xsd" MetadataType="Schema" ID="63d989e0-b94d-4310-ac0a-707b7b462eaf" SourceId="1" SourceUrl="http://localhost:83/DummyService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DummyService.wsdl" MetadataType="Wsdl" ID="7240bbe7-7fb6-4256-8e7c-76b652955785" SourceId="1" SourceUrl="http://localhost:83/DummyService.svc?wsdl" />
+    <MetadataFile FileName="DummyService.disco" MetadataType="Disco" ID="18a40c86-aea5-4121-b6c0-779511a0aaf8" SourceId="1" SourceUrl="http://localhost:83/DummyService.svc?disco" />
+    <MetadataFile FileName="DummyService2.xsd" MetadataType="Schema" ID="f19a5a9c-5ff1-49c7-8a0c-25d7fd7ec6d9" SourceId="1" SourceUrl="http://localhost:83/DummyService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DummyService3.xsd" MetadataType="Schema" ID="2e16ac72-7e64-49da-9b4a-78be2d16a3f4" SourceId="1" SourceUrl="http://localhost:83/DummyService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

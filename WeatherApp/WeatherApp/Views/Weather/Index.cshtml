@@ -1,0 +1,14 @@
+﻿@using WeatherApp.Controllers;
+@using WeatherApp.ViewModels;
+@using WeatherApp.Views.Home;
+@model WeatherApp.ViewModels.WeatherInfoViewModel
+@{
+    ViewBag.Title = "Weather Spa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/kendo/kendo.all.min.js"></script>
+
+<div id="root" style="margin-top: 50px;"></div>
+<script src="http://localhost:81/dist/bundle.js"></script>

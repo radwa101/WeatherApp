@@ -1,0 +1,149 @@
+﻿@using WeatherApp.Controllers;
+@using WeatherApp.ViewModels;
+@using WeatherApp.Views.Home;
+@model WeatherApp.ViewModels.WeatherInfoViewModel
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/kendo/kendo.all.min.js"></script>
+
+@*<div id="root" style="margin-top: 50px;"></div>
+    <script src="http://localhost:81/dist/bundle.js"></script>*@
+
+<script src="~/Scripts/UltraFileUploader/UltraFileUploader.js"></script>
+<script src="~/Scripts/axa-common.js"></script>
+<script src="~/Scripts/clipboard-polyfill.js"></script>
+
+<style>
+    .react-grid-Container {
+        width: 520px !important;
+    }
+
+    .react-grid-Canvas {
+        width: auto !important;
+    }
+</style>
+
+
+
+<button class="btn btn-default" style="padding: 2px 12px; margin: 10px 0px 10px 0px;" id="btnSubmitFiles1">Search</button>
+<div id="container" style="border: 1px solid grey; width: 80%; height: 90px; position: relative; margin: 0 auto; top: 10px;">
+    @using (Html.BeginForm("SearchLocations", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <br/>
+        <div class="files" id="file-container" style="width: 50%; height: 300px; top: 10px; left: 10px; position: absolute;">
+            <div id="validation-wrapper">
+                <div style="float: left; position: relative;">
+                    @Html.TextBoxFor(m => m.CityFilter)
+                    <a class="btn1 btn-transparent btn-show-password" title="Show password">show</a>
+                </div>
+            </div>
+            <button class="btn btn-default" style="padding: 2px 12px; margin: 10px 0px 10px 0px;" id="btnSubmitFiles">Search</button>
+        </div>
+    }
+</div>
+<br />
+<div style="border: 1px solid grey; width: 80%; height: 300px; position: relative; margin: 0 auto; overflow: auto;">
+    @if (Model.Locations != null)
+    {
+        foreach (var location in Model.Locations)
+        {
+            @location.City; <text> </text> @location.Temperature <text> </text> @location.DateTime<br/>
+        }
+    }
+</div>
+
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<style>
+
+    input, select {
+        box-sizing: border-box;
+        width: 100%;
+        height: 36px;
+        padding: 3px;
+        background: #fff;
+        display: inline-block;
+        color: #000;
+        border: solid 1px;
+        border-color: #103184;
+        border-radius: 0;
+    }
+
+
+    #validation-wrapper {
+        float: left;
+        padding: 5px;
+        border: solid 1px transparent;
+        position: relative;
+        box-sizing: border-box;
+        -o-transition: background .35s linear;
+        -webkit-transition: background .35s linear;
+        -moz-transition: background .35s linear;
+        transition: background .35s linear;
+    }
+
+  
+    .btn-show-password
+    {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        color: #888;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .btn1:active {
+        border: none;
+        box-shadow: none;
+        -ms-transform: translateY(1px);
+        -webkit-transform: translateY(1px);
+        transform: translateY(1px);
+    }
+
+    .btn1:hover {
+        border: none;
+        box-shadow: 0 6px 0 -3px rgba(0,0,0,.2);
+        text-decoration: none;
+    }
+
+    .password-wrapper .btn-show-password {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        color: #888;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .btn-transparent, .btn-transparent:before {
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .btn1 {
+        border: none;
+        border-radius: 0;
+        box-shadow: 0 6px 0 -3px rgba(0,0,0,.2);
+        padding: 9px;
+        box-sizing: border-box;
+        -webkit-transition: all .1s linear;
+        transition: all .1s linear;
+        background-color: #585858;
+        display: inline-block;
+        height: 36px;
+        line-height: 18px;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        white-space: nowrap;
+    }
+</style>

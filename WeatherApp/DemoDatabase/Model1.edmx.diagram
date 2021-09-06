@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c7abcd0a928b43dcb762ad4bc561fb24" Name="Diagram1">
+        <EntityTypeShape EntityType="demoDatabaseModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoDatabaseModel.Attendee" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoDatabaseModel.Course" Width="1.5" PointX="2.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoDatabaseModel.CursorTest" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoDatabaseModel.Movie" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoDatabaseModel.Option" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoDatabaseModel.Setting" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoDatabaseModel.sysdiagram" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoDatabaseModel.tblEmployee" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoDatabaseModel.User" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoDatabaseModel.Address" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="demoDatabaseModel.FK_Attendee_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="demoDatabaseModel.FK_Course_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="demoDatabaseModel.FK__Settings__Option__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="demoDatabaseModel.FK__Settings__Option__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="demoDatabaseModel.FK__Settings__UserID__5070F446" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,13 @@
+﻿@using GridMvc.Html
+@using GridMvc.Sorting
+@model Grid.Mvc.Ajax.GridExtensions.AjaxGrid<WeatherApp.Models.Client>
+
+@(Html.Grid(Model).Named("ClientsGrid").Columns(columns =>
+        {
+            columns.Add(c => c.Id);
+            columns.Add(c => c.Name);
+            columns.Add(c => c.Email);
+        })
+        .Filterable()
+        .Sortable())
+        @*.WithPaging(5))*@

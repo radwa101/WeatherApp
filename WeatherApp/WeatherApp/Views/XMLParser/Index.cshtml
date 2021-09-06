@@ -1,0 +1,73 @@
+﻿@using WeatherApp.Controllers;
+@using WeatherApp.ViewModels;
+@using WeatherApp.Views.Home;
+@model WeatherApp.ViewModels.XMLParser
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/kendo/kendo.all.min.js"></script>
+
+<script src="~/Scripts/UltraFileUploader/UltraFileUploader.js"></script>
+<script src="~/Scripts/axa-common.js"></script>
+<script src="~/Scripts/clipboard-polyfill.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.8/themes/default/style.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.8/jstree.min.js"></script>
+
+<button class="btn btn-default" style="padding: 2px 12px; margin: 10px 0px 10px 0px;" id="btnSubmitFiles1">Search</button>
+<br />
+<div style="border: 1px solid grey; width: 80%; height: 300px; position: relative; margin: 0 auto; overflow: auto;">
+    @if (Model.NestedParameters != null)
+    {
+        foreach (var netedArray in Model.NestedParameters)
+        {
+
+            @netedArray.Key; <br />
+            foreach (var parameter in @netedArray.Value)
+            {
+                @parameter <text>&nbsp;&nbsp;&nbsp;<br /></text>
+            }
+        }
+    }
+    <br/><br />
+    <div id="SimpleJSTree"></div>
+
+</div>
+
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    $(function () {
+
+        //var jsondata = [
+        //    { "id": "ajson1", "parent": "#", "text": "Simple root node" },
+        //    { "id": "ajson2", "parent": "#", "text": "Root node 2" },
+        //    { "id": "ajson3", "parent": "ajson2", "text": "Child 1" },
+        //    { "id": "ajson4", "parent": "ajson2", "text": "Child 2" },
+        //];
+
+        
+        createJSTree();
+    });
+
+    function createJSTree() {
+        $('#SimpleJSTree').jstree({
+            "core": {
+                "check_callback": true,
+                'data': {
+                    url:  "/XMLParser/GetJsonData/",
+                    data: function (node) {
+                        return { 'id': node.id };
+                    }
+                }
+            },
+            "checkbox": {
+                "keep_selected_style": false
+            },
+            "plugins": ["checkbox"]
+        });
+    }
+</script>

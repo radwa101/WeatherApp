@@ -1,0 +1,75 @@
+﻿@model IEnumerable<WeatherApp.Models.Client>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "Mvc Grid - Clients";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/ladda-bootstrap/ladda-themeless.min.css")" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="@Url.Content("~/Scripts/URI.js")"></script>
+    <script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/gridmvc-ext.js")"></script>
+    <script src="@Url.Content("~/Scripts/ladda-bootstrap/ladda.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/ladda-bootstrap/spin.min.js")"></script>
+    <title>Index</title>
+</head>
+<body>
+    <h1>Grid.MVC</h1>
+    <hr />
+    <div style="width:500px;">
+
+        @Html.Action("GetGrid")
+
+        @*@Html.Partial("_ClientGrid", Model)*@
+
+        @*@Html.Grid(Model).Columns(columns =>
+            {
+                columns.Add(c => c.Id).Titled("Client ID");
+                columns.Add(c => c.Name).Titled("Name").Filterable(true);
+                columns.Add(c => c.Email).Titled("Email");
+            }).WithPaging(5).Sortable(true)*@
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            (function () {
+                var gridName = 'ClientsGrid';
+                var pagingUrl = 'GridPager';
+
+                $('.grid-mvc').gridmvc();
+                pageGrids[gridName].ajaxify({
+                    getData: pagingUrl,
+                    getPagedData: pagingUrl
+                });
+            }())
+
+            /*$(document).find(".grid-filter-btn:eq(1)").click();
+            $(document).find(".grid-filter-type").val(2);
+            $(document).find(".grid-filter-input").val('Raul');
+            $(document).find(".grid-apply").click();
+
+            $(".grid-filter").hide();
+            setTimeout(function() {
+                $(".grid-filter").click(function () {
+                    $(this).find(".dropdown-menu").css('visibility', 'visible');
+                });
+            }, 1000);
+            */
+        });
+       
+    </script>
+
+</body>
+</html>
+
+
+

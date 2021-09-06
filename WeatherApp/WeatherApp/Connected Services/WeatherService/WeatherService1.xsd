@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:83/WeatherService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WeatherWcf.Models" />
+  <xs:import schemaLocation="http://localhost:83/WeatherService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WeatherWcf.Interfaces.DataTransferObjects" />
+  <xs:element name="GetWorldTemperatures">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorldTemperaturesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WeatherWcf.Models" minOccurs="0" name="GetWorldTemperaturesResult" nillable="true" type="q1:ArrayOfLocation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorldTemperaturesSoap">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WeatherWcf.Interfaces.DataTransferObjects" minOccurs="0" name="request" nillable="true" type="q2:Weather_Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorldTemperaturesSoapResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WeatherWcf.Interfaces.DataTransferObjects" minOccurs="0" name="GetWorldTemperaturesSoapResult" nillable="true" type="q3:Weather_Response" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEuropeanTemperatures">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEuropeanTemperaturesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WeatherWcf.Models" minOccurs="0" name="GetEuropeanTemperaturesResult" nillable="true" type="q4:ArrayOfLocation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetForecastData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterTable" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetForecastDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetForecastDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WeatherInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WeatherWcf.Interfaces.DataTransferObjects" minOccurs="0" name="request" nillable="true" type="q5:Weather_Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WeatherInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WeatherWcf.Interfaces.DataTransferObjects" minOccurs="0" name="WeatherInfoResult" nillable="true" type="q6:Weather_Response" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

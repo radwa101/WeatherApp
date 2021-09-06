@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3a501cc095af48b7b084ed15ec42a238" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="c227_FileProcessorModel.ca_consuming_application" Width="1.5" PointX="5.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="c227_FileProcessorModel.cas_consuming_application_settings" Width="1.5" PointX="8" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="c227_FileProcessorModel.ds_datasource" Width="1.5" PointX="8" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="c227_FileProcessorModel.ed_element_definition" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="c227_FileProcessorModel.fd_file_definition" Width="1.5" PointX="3.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="c227_FileProcessorModel.fr_record" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="c227_FileProcessorModel.frd_record_definition" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="c227_FileProcessorModel.ft_file_transaction" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="c227_FileProcessorModel.ft_transaction" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="c227_FileProcessorModel.ftd_transaction_definition" Width="1.5" PointX="6" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="c227_FileProcessorModel.sp_stored_procedure" Width="1.5" PointX="8.75" PointY="3.25" IsExpanded="true" />
+        <AssociationConnector Association="c227_FileProcessorModel.FK_cas_consuming_application_settings__ca_consuming_application" ManuallyRouted="false" />
+        <AssociationConnector Association="c227_FileProcessorModel.FK_ds_datasource_ca_consuming_application" ManuallyRouted="false" />
+        <AssociationConnector Association="c227_FileProcessorModel.FK_frd_record_definition_ed_element_definition" ManuallyRouted="false" />
+        <AssociationConnector Association="c227_FileProcessorModel.FK_ft_file_transaction_fd_file_definition" ManuallyRouted="false" />
+        <AssociationConnector Association="c227_FileProcessorModel.FK_frd_record_definition_fr_record" ManuallyRouted="false" />
+        <AssociationConnector Association="c227_FileProcessorModel.FK_ftd_transaction_definition_fr_record" ManuallyRouted="false" />
+        <AssociationConnector Association="c227_FileProcessorModel.FK_ft_file_transaction_ft_transaction" ManuallyRouted="false" />
+        <AssociationConnector Association="c227_FileProcessorModel.FK_ftd_transaction_definition_ft_transaction" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

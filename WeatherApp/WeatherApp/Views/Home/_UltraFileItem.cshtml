@@ -1,0 +1,40 @@
+﻿@model WeatherApp.Models.Client
+@{
+    ViewBag.Title = "_UltraFileItem";
+}
+
+<style>
+    .form-control {
+        height: 20px;
+        width: auto;
+        display: inline;
+        padding: 17px 12px;
+    }
+</style>
+
+@using (Html.BeginForm("SaveUltraFileItem", "Home", FormMethod.Post, new { id = "formSaveUltraFileItem" }))
+{
+    <div style="display: flex !important; margin: 5px;">
+        @Html.Label("Id: ", new { style = "width: 75px;" })
+        @Html.TextBoxFor(m => m.Id, new { Class = "form-control mb-4" })
+    </div>
+
+    <div style="display: flex !important; margin: 5px;">
+        @Html.Label("Name: ", new { style = "width: 75px" })
+        @Html.TextBoxFor(m => m.Name, new { Class = "form-control mb-4" })
+    </div>
+
+    <div style="display: flex !important; margin: 5px;">
+        @Html.Label("Email: ", new { style = "width: 75px" })
+        @Html.TextBoxFor(m => m.Email, new { Class = "form-control mb-4" })
+    </div>
+
+    <div style="display: flex !important; margin: 5px;">
+        @Html.Label("Active: ", new { style = "width: 75px" })
+        @Html.CheckBoxFor(m => m.DisplayActive, new { Class = "form-control mb-4" })
+    </div>
+
+    <div>
+        <label id="lblError" style="color: red"></label>
+    </div>
+}

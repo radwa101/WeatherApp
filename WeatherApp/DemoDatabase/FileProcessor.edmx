@@ -1,0 +1,1306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="c227_FileProcessorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ca_consuming_application">
+          <Key>
+            <PropertyRef Name="ConsumingApplicationId" />
+          </Key>
+          <Property Name="ConsumingApplicationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUserId" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="cas_consuming_application_settings">
+          <Key>
+            <PropertyRef Name="ConsumingApplicationSettingId" />
+          </Key>
+          <Property Name="ConsumingApplicationSettingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConsumingApplicationId" Type="int" Nullable="false" />
+          <Property Name="Key" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUserId" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ds_datasource">
+          <Key>
+            <PropertyRef Name="DatasourceId" />
+          </Key>
+          <Property Name="DatasourceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConsumingApplicationId" Type="int" Nullable="false" />
+          <Property Name="Server" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Catalog" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUserId" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ed_element_definition">
+          <Key>
+            <PropertyRef Name="ElementId" />
+          </Key>
+          <Property Name="ElementId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ElementName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataType" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FilePadType" Type="char" MaxLength="1" />
+          <Property Name="FilePadCharacter" Type="char" MaxLength="1" />
+          <Property Name="FilePadCharacterOnEmpty" Type="char" MaxLength="1" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUserId" Type="varchar" MaxLength="20" />
+          <Property Name="SourceFormatString" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="fd_file_definition">
+          <Key>
+            <PropertyRef Name="FileId" />
+          </Key>
+          <Property Name="FileId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="HeaderTemplate" Type="varchar" MaxLength="2048" />
+          <Property Name="TrailerTemplate" Type="varchar" MaxLength="2048" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUserId" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="fr_record">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecordName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="Template" Type="varchar" MaxLength="2048" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUserId" Type="varchar" MaxLength="20" />
+          <Property Name="RecordLength" Type="int" />
+          <Property Name="Identifier" Type="varchar" MaxLength="50" />
+          <Property Name="XML" Type="bit" />
+        </EntityType>
+        <EntityType Name="frd_record_definition">
+          <Key>
+            <PropertyRef Name="RecordDefinitionId" />
+          </Key>
+          <Property Name="RecordDefinitionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecordId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ElementId" Type="int" Nullable="false" />
+          <Property Name="Sequence" Type="int" Nullable="false" />
+          <Property Name="Length" Type="int" Nullable="false" />
+          <Property Name="DecimalPlaces" Type="int" />
+          <Property Name="Mandatory" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUserId" Type="varchar" MaxLength="20" />
+          <Property Name="Line" Type="int" />
+        </EntityType>
+        <EntityType Name="ft_file_transaction">
+          <Key>
+            <PropertyRef Name="FileTransactionId" />
+          </Key>
+          <Property Name="FileTransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileId" Type="int" Nullable="false" />
+          <Property Name="TransactionId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUserId" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ft_transaction">
+          <Key>
+            <PropertyRef Name="TransactionId" />
+          </Key>
+          <Property Name="TransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="HeaderTemplate" Type="varchar" MaxLength="2048" />
+          <Property Name="TrailerTemplate" Type="varchar" MaxLength="2048" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUserId" Type="varchar" MaxLength="20" />
+          <Property Name="HeaderLength" Type="int" />
+          <Property Name="TrailerLength" Type="int" />
+          <Property Name="HeaderCount" Type="int" />
+          <Property Name="TrailerCount" Type="int" />
+        </EntityType>
+        <EntityType Name="ftd_transaction_definition">
+          <Key>
+            <PropertyRef Name="TransactionDefinitionId" />
+          </Key>
+          <Property Name="TransactionDefinitionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionId" Type="int" Nullable="false" />
+          <Property Name="RecordId" Type="int" Nullable="false" />
+          <Property Name="Sequence" Type="int" Nullable="false" />
+          <Property Name="MinOccurrences" Type="int" />
+          <Property Name="MaxOccurrences" Type="int" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUserId" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="sp_stored_procedure">
+          <Key>
+            <PropertyRef Name="StoredProcedureId" />
+          </Key>
+          <Property Name="StoredProcedureId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Schema" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="Text" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_cas_consuming_application_settings__ca_consuming_application">
+          <End Role="ca_consuming_application" Type="Self.ca_consuming_application" Multiplicity="1" />
+          <End Role="cas_consuming_application_settings" Type="Self.cas_consuming_application_settings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ca_consuming_application">
+              <PropertyRef Name="ConsumingApplicationId" />
+            </Principal>
+            <Dependent Role="cas_consuming_application_settings">
+              <PropertyRef Name="ConsumingApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ds_datasource_ca_consuming_application">
+          <End Role="ca_consuming_application" Type="Self.ca_consuming_application" Multiplicity="1" />
+          <End Role="ds_datasource" Type="Self.ds_datasource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ca_consuming_application">
+              <PropertyRef Name="ConsumingApplicationId" />
+            </Principal>
+            <Dependent Role="ds_datasource">
+              <PropertyRef Name="ConsumingApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_frd_record_definition_ed_element_definition">
+          <End Role="ed_element_definition" Type="Self.ed_element_definition" Multiplicity="1" />
+          <End Role="frd_record_definition" Type="Self.frd_record_definition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ed_element_definition">
+              <PropertyRef Name="ElementId" />
+            </Principal>
+            <Dependent Role="frd_record_definition">
+              <PropertyRef Name="ElementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_frd_record_definition_fr_record">
+          <End Role="fr_record" Type="Self.fr_record" Multiplicity="1" />
+          <End Role="frd_record_definition" Type="Self.frd_record_definition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fr_record">
+              <PropertyRef Name="RecordId" />
+            </Principal>
+            <Dependent Role="frd_record_definition">
+              <PropertyRef Name="RecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ft_file_transaction_fd_file_definition">
+          <End Role="fd_file_definition" Type="Self.fd_file_definition" Multiplicity="1" />
+          <End Role="ft_file_transaction" Type="Self.ft_file_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fd_file_definition">
+              <PropertyRef Name="FileId" />
+            </Principal>
+            <Dependent Role="ft_file_transaction">
+              <PropertyRef Name="FileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ft_file_transaction_ft_transaction">
+          <End Role="ft_transaction" Type="Self.ft_transaction" Multiplicity="1" />
+          <End Role="ft_file_transaction" Type="Self.ft_file_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ft_transaction">
+              <PropertyRef Name="TransactionId" />
+            </Principal>
+            <Dependent Role="ft_file_transaction">
+              <PropertyRef Name="TransactionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ftd_transaction_definition_fr_record">
+          <End Role="fr_record" Type="Self.fr_record" Multiplicity="1" />
+          <End Role="ftd_transaction_definition" Type="Self.ftd_transaction_definition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fr_record">
+              <PropertyRef Name="RecordId" />
+            </Principal>
+            <Dependent Role="ftd_transaction_definition">
+              <PropertyRef Name="RecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ftd_transaction_definition_ft_transaction">
+          <End Role="ft_transaction" Type="Self.ft_transaction" Multiplicity="1" />
+          <End Role="ftd_transaction_definition" Type="Self.ftd_transaction_definition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ft_transaction">
+              <PropertyRef Name="TransactionId" />
+            </Principal>
+            <Dependent Role="ftd_transaction_definition">
+              <PropertyRef Name="TransactionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DeleteConsumingApplication" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ConsumingApplicationId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteConsumingApplicationSetting" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ConsumingApplicationSettingId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteDatasource" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DatasourceId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteElementDefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ElementId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteFileDefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FileId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteFileTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FileTransactionId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RecordId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteRecordDefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RecordDefinitionId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransactionId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteTransactionDefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransactionDefinitionId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetConsumingApplications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetConsumingApplicationSettings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetDatasources" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetElementDefinitions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetFileDefinitions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FileName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetFileDefLastUpdatedDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransactionId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetFileTransactions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetRecordDefinitions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetRecords" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RecordName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetTransactionDefinitions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetTransactions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransactionName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertConsumingApplication" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="CreateUserId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertConsumingApplicationSetting" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ConsumingApplicationId" Type="int" Mode="In" />
+          <Parameter Name="Key" Type="varchar" Mode="In" />
+          <Parameter Name="Value" Type="varchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="CreateUserId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertDatasource" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ConsumingApplicationId" Type="int" Mode="In" />
+          <Parameter Name="Server" Type="varchar" Mode="In" />
+          <Parameter Name="Catalog" Type="varchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="CreateUserId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertElementDefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ElementName" Type="varchar" Mode="In" />
+          <Parameter Name="DataType" Type="varchar" Mode="In" />
+          <Parameter Name="FilePadType" Type="char" Mode="In" />
+          <Parameter Name="FilePadCharacter" Type="char" Mode="In" />
+          <Parameter Name="FilePadCharacterOnEmpty" Type="char" Mode="In" />
+          <Parameter Name="CreateUserId" Type="varchar" Mode="In" />
+          <Parameter Name="SourceFormatString" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertFileDefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FileName" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="HeaderTemplate" Type="varchar" Mode="In" />
+          <Parameter Name="TrailerTemplate" Type="varchar" Mode="In" />
+          <Parameter Name="CreateUserId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertFileTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FileId" Type="int" Mode="In" />
+          <Parameter Name="TransactionId" Type="int" Mode="In" />
+          <Parameter Name="CreateUserId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RecordName" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="Template" Type="varchar" Mode="In" />
+          <Parameter Name="CreateUserId" Type="varchar" Mode="In" />
+          <Parameter Name="RecordLength" Type="int" Mode="In" />
+          <Parameter Name="Identifier" Type="varchar" Mode="In" />
+          <Parameter Name="XML" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="InsertRecordDefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RecordId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="ElementId" Type="int" Mode="In" />
+          <Parameter Name="Sequence" Type="int" Mode="In" />
+          <Parameter Name="Length" Type="int" Mode="In" />
+          <Parameter Name="DecimalPlaces" Type="int" Mode="In" />
+          <Parameter Name="Mandatory" Type="bit" Mode="In" />
+          <Parameter Name="CreateUserId" Type="varchar" Mode="In" />
+          <Parameter Name="Line" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransactionName" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="HeaderTemplate" Type="varchar" Mode="In" />
+          <Parameter Name="TrailerTemplate" Type="varchar" Mode="In" />
+          <Parameter Name="CreateUserId" Type="varchar" Mode="In" />
+          <Parameter Name="HeaderLength" Type="int" Mode="In" />
+          <Parameter Name="TrailerLength" Type="int" Mode="In" />
+          <Parameter Name="HeaderCount" Type="int" Mode="In" />
+          <Parameter Name="TrailerCount" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertTransactionDefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransactionId" Type="int" Mode="In" />
+          <Parameter Name="RecordId" Type="int" Mode="In" />
+          <Parameter Name="Sequence" Type="int" Mode="In" />
+          <Parameter Name="MinOccurrences" Type="int" Mode="In" />
+          <Parameter Name="MaxOccurrences" Type="int" Mode="In" />
+          <Parameter Name="CreateUserId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateConsumingApplication" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ConsumingApplicationId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+          <Parameter Name="UpdateUserId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateConsumingApplicationSetting" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ConsumingApplicationSettingId" Type="int" Mode="In" />
+          <Parameter Name="ConsumingApplicationId" Type="int" Mode="In" />
+          <Parameter Name="Key" Type="varchar" Mode="In" />
+          <Parameter Name="Value" Type="varchar" Mode="In" />
+          <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+          <Parameter Name="UpdateUserId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateDatasource" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DatasourceId" Type="int" Mode="In" />
+          <Parameter Name="ConsumingApplicationId" Type="int" Mode="In" />
+          <Parameter Name="Server" Type="varchar" Mode="In" />
+          <Parameter Name="Catalog" Type="varchar" Mode="In" />
+          <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+          <Parameter Name="UpdateUserId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateElementDefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ElementId" Type="int" Mode="In" />
+          <Parameter Name="ElementName" Type="varchar" Mode="In" />
+          <Parameter Name="DataType" Type="varchar" Mode="In" />
+          <Parameter Name="FilePadType" Type="char" Mode="In" />
+          <Parameter Name="FilePadCharacter" Type="char" Mode="In" />
+          <Parameter Name="FilePadCharacterOnEmpty" Type="char" Mode="In" />
+          <Parameter Name="UpdateUserId" Type="varchar" Mode="In" />
+          <Parameter Name="SourceFormatString" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateFileDefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FileId" Type="int" Mode="In" />
+          <Parameter Name="FileName" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="HeaderTemplate" Type="varchar" Mode="In" />
+          <Parameter Name="TrailerTemplate" Type="varchar" Mode="In" />
+          <Parameter Name="UpdateUserId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateFileTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FileTransactionId" Type="int" Mode="In" />
+          <Parameter Name="FileId" Type="int" Mode="In" />
+          <Parameter Name="TransactionId" Type="int" Mode="In" />
+          <Parameter Name="UpdateUserId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RecordId" Type="int" Mode="In" />
+          <Parameter Name="RecordName" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="Template" Type="varchar" Mode="In" />
+          <Parameter Name="UpdateUserId" Type="varchar" Mode="In" />
+          <Parameter Name="RecordLength" Type="int" Mode="In" />
+          <Parameter Name="Identifier" Type="varchar" Mode="In" />
+          <Parameter Name="XML" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UpdateRecordDefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RecordDefinitionId" Type="int" Mode="In" />
+          <Parameter Name="RecordId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="ElementId" Type="int" Mode="In" />
+          <Parameter Name="Sequence" Type="int" Mode="In" />
+          <Parameter Name="Length" Type="int" Mode="In" />
+          <Parameter Name="DecimalPlaces" Type="int" Mode="In" />
+          <Parameter Name="Mandatory" Type="bit" Mode="In" />
+          <Parameter Name="UpdateUserId" Type="varchar" Mode="In" />
+          <Parameter Name="Line" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransactionId" Type="int" Mode="In" />
+          <Parameter Name="TransactionName" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="HeaderTemplate" Type="varchar" Mode="In" />
+          <Parameter Name="TrailerTemplate" Type="varchar" Mode="In" />
+          <Parameter Name="UpdateUserId" Type="varchar" Mode="In" />
+          <Parameter Name="HeaderLength" Type="int" Mode="In" />
+          <Parameter Name="TrailerLength" Type="int" Mode="In" />
+          <Parameter Name="HeaderCount" Type="int" Mode="In" />
+          <Parameter Name="TrailerCount" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateTransactionDefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransactionDefinitionId" Type="int" Mode="In" />
+          <Parameter Name="TransactionId" Type="int" Mode="In" />
+          <Parameter Name="RecordId" Type="int" Mode="In" />
+          <Parameter Name="Sequence" Type="int" Mode="In" />
+          <Parameter Name="MinOccurrences" Type="int" Mode="In" />
+          <Parameter Name="MaxOccurrences" Type="int" Mode="In" />
+          <Parameter Name="UpdateUserId" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="c227_FileProcessorModelStoreContainer">
+          <EntitySet Name="ca_consuming_application" EntityType="Self.ca_consuming_application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cas_consuming_application_settings" EntityType="Self.cas_consuming_application_settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ds_datasource" EntityType="Self.ds_datasource" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ed_element_definition" EntityType="Self.ed_element_definition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fd_file_definition" EntityType="Self.fd_file_definition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fr_record" EntityType="Self.fr_record" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="frd_record_definition" EntityType="Self.frd_record_definition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ft_file_transaction" EntityType="Self.ft_file_transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ft_transaction" EntityType="Self.ft_transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ftd_transaction_definition" EntityType="Self.ftd_transaction_definition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sp_stored_procedure" EntityType="Self.sp_stored_procedure" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_cas_consuming_application_settings__ca_consuming_application" Association="Self.FK_cas_consuming_application_settings__ca_consuming_application">
+            <End Role="ca_consuming_application" EntitySet="ca_consuming_application" />
+            <End Role="cas_consuming_application_settings" EntitySet="cas_consuming_application_settings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ds_datasource_ca_consuming_application" Association="Self.FK_ds_datasource_ca_consuming_application">
+            <End Role="ca_consuming_application" EntitySet="ca_consuming_application" />
+            <End Role="ds_datasource" EntitySet="ds_datasource" />
+          </AssociationSet>
+          <AssociationSet Name="FK_frd_record_definition_ed_element_definition" Association="Self.FK_frd_record_definition_ed_element_definition">
+            <End Role="ed_element_definition" EntitySet="ed_element_definition" />
+            <End Role="frd_record_definition" EntitySet="frd_record_definition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_frd_record_definition_fr_record" Association="Self.FK_frd_record_definition_fr_record">
+            <End Role="fr_record" EntitySet="fr_record" />
+            <End Role="frd_record_definition" EntitySet="frd_record_definition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ft_file_transaction_fd_file_definition" Association="Self.FK_ft_file_transaction_fd_file_definition">
+            <End Role="fd_file_definition" EntitySet="fd_file_definition" />
+            <End Role="ft_file_transaction" EntitySet="ft_file_transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ft_file_transaction_ft_transaction" Association="Self.FK_ft_file_transaction_ft_transaction">
+            <End Role="ft_transaction" EntitySet="ft_transaction" />
+            <End Role="ft_file_transaction" EntitySet="ft_file_transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ftd_transaction_definition_fr_record" Association="Self.FK_ftd_transaction_definition_fr_record">
+            <End Role="fr_record" EntitySet="fr_record" />
+            <End Role="ftd_transaction_definition" EntitySet="ftd_transaction_definition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ftd_transaction_definition_ft_transaction" Association="Self.FK_ftd_transaction_definition_ft_transaction">
+            <End Role="ft_transaction" EntitySet="ft_transaction" />
+            <End Role="ftd_transaction_definition" EntitySet="ftd_transaction_definition" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="c227_FileProcessorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ca_consuming_application">
+          <Key>
+            <PropertyRef Name="ConsumingApplicationId" />
+          </Key>
+          <Property Name="ConsumingApplicationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cas_consuming_application_settings" Relationship="Self.FK_cas_consuming_application_settings__ca_consuming_application" FromRole="ca_consuming_application" ToRole="cas_consuming_application_settings" />
+          <NavigationProperty Name="ds_datasource" Relationship="Self.FK_ds_datasource_ca_consuming_application" FromRole="ca_consuming_application" ToRole="ds_datasource" />
+        </EntityType>
+        <EntityType Name="cas_consuming_application_settings">
+          <Key>
+            <PropertyRef Name="ConsumingApplicationSettingId" />
+          </Key>
+          <Property Name="ConsumingApplicationSettingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConsumingApplicationId" Type="Int32" Nullable="false" />
+          <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ca_consuming_application" Relationship="Self.FK_cas_consuming_application_settings__ca_consuming_application" FromRole="cas_consuming_application_settings" ToRole="ca_consuming_application" />
+        </EntityType>
+        <EntityType Name="ds_datasource">
+          <Key>
+            <PropertyRef Name="DatasourceId" />
+          </Key>
+          <Property Name="DatasourceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConsumingApplicationId" Type="Int32" Nullable="false" />
+          <Property Name="Server" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Catalog" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ca_consuming_application" Relationship="Self.FK_ds_datasource_ca_consuming_application" FromRole="ds_datasource" ToRole="ca_consuming_application" />
+        </EntityType>
+        <EntityType Name="ed_element_definition">
+          <Key>
+            <PropertyRef Name="ElementId" />
+          </Key>
+          <Property Name="ElementId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ElementName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FilePadType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FilePadCharacter" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FilePadCharacterOnEmpty" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SourceFormatString" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="frd_record_definition" Relationship="Self.FK_frd_record_definition_ed_element_definition" FromRole="ed_element_definition" ToRole="frd_record_definition" />
+        </EntityType>
+        <EntityType Name="fd_file_definition">
+          <Key>
+            <PropertyRef Name="FileId" />
+          </Key>
+          <Property Name="FileId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HeaderTemplate" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="TrailerTemplate" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ft_file_transaction" Relationship="Self.FK_ft_file_transaction_fd_file_definition" FromRole="fd_file_definition" ToRole="ft_file_transaction" />
+        </EntityType>
+        <EntityType Name="fr_record">
+          <Key>
+            <PropertyRef Name="RecordId" />
+          </Key>
+          <Property Name="RecordId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecordName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Template" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RecordLength" Type="Int32" />
+          <Property Name="Identifier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="XML" Type="Boolean" />
+          <NavigationProperty Name="frd_record_definition" Relationship="Self.FK_frd_record_definition_fr_record" FromRole="fr_record" ToRole="frd_record_definition" />
+          <NavigationProperty Name="ftd_transaction_definition" Relationship="Self.FK_ftd_transaction_definition_fr_record" FromRole="fr_record" ToRole="ftd_transaction_definition" />
+        </EntityType>
+        <EntityType Name="frd_record_definition">
+          <Key>
+            <PropertyRef Name="RecordDefinitionId" />
+          </Key>
+          <Property Name="RecordDefinitionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecordId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ElementId" Type="Int32" Nullable="false" />
+          <Property Name="Sequence" Type="Int32" Nullable="false" />
+          <Property Name="Length" Type="Int32" Nullable="false" />
+          <Property Name="DecimalPlaces" Type="Int32" />
+          <Property Name="Mandatory" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Line" Type="Int32" />
+          <NavigationProperty Name="ed_element_definition" Relationship="Self.FK_frd_record_definition_ed_element_definition" FromRole="frd_record_definition" ToRole="ed_element_definition" />
+          <NavigationProperty Name="fr_record" Relationship="Self.FK_frd_record_definition_fr_record" FromRole="frd_record_definition" ToRole="fr_record" />
+        </EntityType>
+        <EntityType Name="ft_file_transaction">
+          <Key>
+            <PropertyRef Name="FileTransactionId" />
+          </Key>
+          <Property Name="FileTransactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileId" Type="Int32" Nullable="false" />
+          <Property Name="TransactionId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="fd_file_definition" Relationship="Self.FK_ft_file_transaction_fd_file_definition" FromRole="ft_file_transaction" ToRole="fd_file_definition" />
+          <NavigationProperty Name="ft_transaction" Relationship="Self.FK_ft_file_transaction_ft_transaction" FromRole="ft_file_transaction" ToRole="ft_transaction" />
+        </EntityType>
+        <EntityType Name="ft_transaction">
+          <Key>
+            <PropertyRef Name="TransactionId" />
+          </Key>
+          <Property Name="TransactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HeaderTemplate" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="TrailerTemplate" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="HeaderLength" Type="Int32" />
+          <Property Name="TrailerLength" Type="Int32" />
+          <Property Name="HeaderCount" Type="Int32" />
+          <Property Name="TrailerCount" Type="Int32" />
+          <NavigationProperty Name="ft_file_transaction" Relationship="Self.FK_ft_file_transaction_ft_transaction" FromRole="ft_transaction" ToRole="ft_file_transaction" />
+          <NavigationProperty Name="ftd_transaction_definition" Relationship="Self.FK_ftd_transaction_definition_ft_transaction" FromRole="ft_transaction" ToRole="ftd_transaction_definition" />
+        </EntityType>
+        <EntityType Name="ftd_transaction_definition">
+          <Key>
+            <PropertyRef Name="TransactionDefinitionId" />
+          </Key>
+          <Property Name="TransactionDefinitionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionId" Type="Int32" Nullable="false" />
+          <Property Name="RecordId" Type="Int32" Nullable="false" />
+          <Property Name="Sequence" Type="Int32" Nullable="false" />
+          <Property Name="MinOccurrences" Type="Int32" />
+          <Property Name="MaxOccurrences" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="fr_record" Relationship="Self.FK_ftd_transaction_definition_fr_record" FromRole="ftd_transaction_definition" ToRole="fr_record" />
+          <NavigationProperty Name="ft_transaction" Relationship="Self.FK_ftd_transaction_definition_ft_transaction" FromRole="ftd_transaction_definition" ToRole="ft_transaction" />
+        </EntityType>
+        <EntityType Name="sp_stored_procedure">
+          <Key>
+            <PropertyRef Name="StoredProcedureId" />
+          </Key>
+          <Property Name="StoredProcedureId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Schema" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_cas_consuming_application_settings__ca_consuming_application">
+          <End Role="ca_consuming_application" Type="Self.ca_consuming_application" Multiplicity="1" />
+          <End Role="cas_consuming_application_settings" Type="Self.cas_consuming_application_settings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ca_consuming_application">
+              <PropertyRef Name="ConsumingApplicationId" />
+            </Principal>
+            <Dependent Role="cas_consuming_application_settings">
+              <PropertyRef Name="ConsumingApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ds_datasource_ca_consuming_application">
+          <End Role="ca_consuming_application" Type="Self.ca_consuming_application" Multiplicity="1" />
+          <End Role="ds_datasource" Type="Self.ds_datasource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ca_consuming_application">
+              <PropertyRef Name="ConsumingApplicationId" />
+            </Principal>
+            <Dependent Role="ds_datasource">
+              <PropertyRef Name="ConsumingApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_frd_record_definition_ed_element_definition">
+          <End Role="ed_element_definition" Type="Self.ed_element_definition" Multiplicity="1" />
+          <End Role="frd_record_definition" Type="Self.frd_record_definition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ed_element_definition">
+              <PropertyRef Name="ElementId" />
+            </Principal>
+            <Dependent Role="frd_record_definition">
+              <PropertyRef Name="ElementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ft_file_transaction_fd_file_definition">
+          <End Role="fd_file_definition" Type="Self.fd_file_definition" Multiplicity="1" />
+          <End Role="ft_file_transaction" Type="Self.ft_file_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fd_file_definition">
+              <PropertyRef Name="FileId" />
+            </Principal>
+            <Dependent Role="ft_file_transaction">
+              <PropertyRef Name="FileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_frd_record_definition_fr_record">
+          <End Role="fr_record" Type="Self.fr_record" Multiplicity="1" />
+          <End Role="frd_record_definition" Type="Self.frd_record_definition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fr_record">
+              <PropertyRef Name="RecordId" />
+            </Principal>
+            <Dependent Role="frd_record_definition">
+              <PropertyRef Name="RecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ftd_transaction_definition_fr_record">
+          <End Role="fr_record" Type="Self.fr_record" Multiplicity="1" />
+          <End Role="ftd_transaction_definition" Type="Self.ftd_transaction_definition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fr_record">
+              <PropertyRef Name="RecordId" />
+            </Principal>
+            <Dependent Role="ftd_transaction_definition">
+              <PropertyRef Name="RecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ft_file_transaction_ft_transaction">
+          <End Role="ft_transaction" Type="Self.ft_transaction" Multiplicity="1" />
+          <End Role="ft_file_transaction" Type="Self.ft_file_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ft_transaction">
+              <PropertyRef Name="TransactionId" />
+            </Principal>
+            <Dependent Role="ft_file_transaction">
+              <PropertyRef Name="TransactionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ftd_transaction_definition_ft_transaction">
+          <End Role="ft_transaction" Type="Self.ft_transaction" Multiplicity="1" />
+          <End Role="ftd_transaction_definition" Type="Self.ftd_transaction_definition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ft_transaction">
+              <PropertyRef Name="TransactionId" />
+            </Principal>
+            <Dependent Role="ftd_transaction_definition">
+              <PropertyRef Name="TransactionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="c227_FileProcessorEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ca_consuming_application" EntityType="Self.ca_consuming_application" />
+          <EntitySet Name="cas_consuming_application_settings" EntityType="Self.cas_consuming_application_settings" />
+          <EntitySet Name="ds_datasource" EntityType="Self.ds_datasource" />
+          <EntitySet Name="ed_element_definition" EntityType="Self.ed_element_definition" />
+          <EntitySet Name="fd_file_definition" EntityType="Self.fd_file_definition" />
+          <EntitySet Name="fr_record" EntityType="Self.fr_record" />
+          <EntitySet Name="frd_record_definition" EntityType="Self.frd_record_definition" />
+          <EntitySet Name="ft_file_transaction" EntityType="Self.ft_file_transaction" />
+          <EntitySet Name="ft_transaction" EntityType="Self.ft_transaction" />
+          <EntitySet Name="ftd_transaction_definition" EntityType="Self.ftd_transaction_definition" />
+          <EntitySet Name="sp_stored_procedure" EntityType="Self.sp_stored_procedure" />
+          <AssociationSet Name="FK_cas_consuming_application_settings__ca_consuming_application" Association="Self.FK_cas_consuming_application_settings__ca_consuming_application">
+            <End Role="ca_consuming_application" EntitySet="ca_consuming_application" />
+            <End Role="cas_consuming_application_settings" EntitySet="cas_consuming_application_settings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ds_datasource_ca_consuming_application" Association="Self.FK_ds_datasource_ca_consuming_application">
+            <End Role="ca_consuming_application" EntitySet="ca_consuming_application" />
+            <End Role="ds_datasource" EntitySet="ds_datasource" />
+          </AssociationSet>
+          <AssociationSet Name="FK_frd_record_definition_ed_element_definition" Association="Self.FK_frd_record_definition_ed_element_definition">
+            <End Role="ed_element_definition" EntitySet="ed_element_definition" />
+            <End Role="frd_record_definition" EntitySet="frd_record_definition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ft_file_transaction_fd_file_definition" Association="Self.FK_ft_file_transaction_fd_file_definition">
+            <End Role="fd_file_definition" EntitySet="fd_file_definition" />
+            <End Role="ft_file_transaction" EntitySet="ft_file_transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_frd_record_definition_fr_record" Association="Self.FK_frd_record_definition_fr_record">
+            <End Role="fr_record" EntitySet="fr_record" />
+            <End Role="frd_record_definition" EntitySet="frd_record_definition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ftd_transaction_definition_fr_record" Association="Self.FK_ftd_transaction_definition_fr_record">
+            <End Role="fr_record" EntitySet="fr_record" />
+            <End Role="ftd_transaction_definition" EntitySet="ftd_transaction_definition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ft_file_transaction_ft_transaction" Association="Self.FK_ft_file_transaction_ft_transaction">
+            <End Role="ft_transaction" EntitySet="ft_transaction" />
+            <End Role="ft_file_transaction" EntitySet="ft_file_transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ftd_transaction_definition_ft_transaction" Association="Self.FK_ftd_transaction_definition_ft_transaction">
+            <End Role="ft_transaction" EntitySet="ft_transaction" />
+            <End Role="ftd_transaction_definition" EntitySet="ftd_transaction_definition" />
+          </AssociationSet>
+          <FunctionImport Name="DeleteConsumingApplication">
+            <Parameter Name="ConsumingApplicationId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteConsumingApplicationSetting">
+            <Parameter Name="ConsumingApplicationSettingId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteDatasource">
+            <Parameter Name="DatasourceId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteElementDefinition">
+            <Parameter Name="ElementId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteFileDefinition">
+            <Parameter Name="FileId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteFileTransaction">
+            <Parameter Name="FileTransactionId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteRecord">
+            <Parameter Name="RecordId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteRecordDefinition">
+            <Parameter Name="RecordDefinitionId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteTransaction">
+            <Parameter Name="TransactionId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteTransactionDefinition">
+            <Parameter Name="TransactionDefinitionId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetConsumingApplications">
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetConsumingApplicationSettings" />
+          <FunctionImport Name="GetDatasources" />
+          <FunctionImport Name="GetElementDefinitions" />
+          <FunctionImport Name="GetFileDefinitions">
+            <Parameter Name="FileName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetFileDefLastUpdatedDate" ReturnType="Collection(DateTime)">
+            <Parameter Name="TransactionId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetFileTransactions" />
+          <FunctionImport Name="GetRecordDefinitions">
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetRecords">
+            <Parameter Name="RecordName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetTransactionDefinitions" />
+          <FunctionImport Name="GetTransactions">
+            <Parameter Name="TransactionName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertConsumingApplication">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="CreateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CreateUserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertConsumingApplicationSetting">
+            <Parameter Name="ConsumingApplicationId" Mode="In" Type="Int32" />
+            <Parameter Name="Key" Mode="In" Type="String" />
+            <Parameter Name="Value" Mode="In" Type="String" />
+            <Parameter Name="CreateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CreateUserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertDatasource">
+            <Parameter Name="ConsumingApplicationId" Mode="In" Type="Int32" />
+            <Parameter Name="Server" Mode="In" Type="String" />
+            <Parameter Name="Catalog" Mode="In" Type="String" />
+            <Parameter Name="CreateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CreateUserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertElementDefinition" ReturnType="Collection(Decimal)">
+            <Parameter Name="ElementName" Mode="In" Type="String" />
+            <Parameter Name="DataType" Mode="In" Type="String" />
+            <Parameter Name="FilePadType" Mode="In" Type="String" />
+            <Parameter Name="FilePadCharacter" Mode="In" Type="String" />
+            <Parameter Name="FilePadCharacterOnEmpty" Mode="In" Type="String" />
+            <Parameter Name="CreateUserId" Mode="In" Type="String" />
+            <Parameter Name="SourceFormatString" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertFileDefinition" ReturnType="Collection(Decimal)">
+            <Parameter Name="FileName" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="HeaderTemplate" Mode="In" Type="String" />
+            <Parameter Name="TrailerTemplate" Mode="In" Type="String" />
+            <Parameter Name="CreateUserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertFileTransaction">
+            <Parameter Name="FileId" Mode="In" Type="Int32" />
+            <Parameter Name="TransactionId" Mode="In" Type="Int32" />
+            <Parameter Name="CreateUserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertRecord" ReturnType="Collection(Decimal)">
+            <Parameter Name="RecordName" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Template" Mode="In" Type="String" />
+            <Parameter Name="CreateUserId" Mode="In" Type="String" />
+            <Parameter Name="RecordLength" Mode="In" Type="Int32" />
+            <Parameter Name="Identifier" Mode="In" Type="String" />
+            <Parameter Name="XML" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="InsertRecordDefinition" ReturnType="Collection(Decimal)">
+            <Parameter Name="RecordId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="ElementId" Mode="In" Type="Int32" />
+            <Parameter Name="Sequence" Mode="In" Type="Int32" />
+            <Parameter Name="Length" Mode="In" Type="Int32" />
+            <Parameter Name="DecimalPlaces" Mode="In" Type="Int32" />
+            <Parameter Name="Mandatory" Mode="In" Type="Boolean" />
+            <Parameter Name="CreateUserId" Mode="In" Type="String" />
+            <Parameter Name="Line" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertTransaction" ReturnType="Collection(Decimal)">
+            <Parameter Name="TransactionName" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="HeaderTemplate" Mode="In" Type="String" />
+            <Parameter Name="TrailerTemplate" Mode="In" Type="String" />
+            <Parameter Name="CreateUserId" Mode="In" Type="String" />
+            <Parameter Name="HeaderLength" Mode="In" Type="Int32" />
+            <Parameter Name="TrailerLength" Mode="In" Type="Int32" />
+            <Parameter Name="HeaderCount" Mode="In" Type="Int32" />
+            <Parameter Name="TrailerCount" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertTransactionDefinition" ReturnType="Collection(Decimal)">
+            <Parameter Name="TransactionId" Mode="In" Type="Int32" />
+            <Parameter Name="RecordId" Mode="In" Type="Int32" />
+            <Parameter Name="Sequence" Mode="In" Type="Int32" />
+            <Parameter Name="MinOccurrences" Mode="In" Type="Int32" />
+            <Parameter Name="MaxOccurrences" Mode="In" Type="Int32" />
+            <Parameter Name="CreateUserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateConsumingApplication">
+            <Parameter Name="ConsumingApplicationId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="UpdateUserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateConsumingApplicationSetting">
+            <Parameter Name="ConsumingApplicationSettingId" Mode="In" Type="Int32" />
+            <Parameter Name="ConsumingApplicationId" Mode="In" Type="Int32" />
+            <Parameter Name="Key" Mode="In" Type="String" />
+            <Parameter Name="Value" Mode="In" Type="String" />
+            <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="UpdateUserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateDatasource">
+            <Parameter Name="DatasourceId" Mode="In" Type="Int32" />
+            <Parameter Name="ConsumingApplicationId" Mode="In" Type="Int32" />
+            <Parameter Name="Server" Mode="In" Type="String" />
+            <Parameter Name="Catalog" Mode="In" Type="String" />
+            <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="UpdateUserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateElementDefinition">
+            <Parameter Name="ElementId" Mode="In" Type="Int32" />
+            <Parameter Name="ElementName" Mode="In" Type="String" />
+            <Parameter Name="DataType" Mode="In" Type="String" />
+            <Parameter Name="FilePadType" Mode="In" Type="String" />
+            <Parameter Name="FilePadCharacter" Mode="In" Type="String" />
+            <Parameter Name="FilePadCharacterOnEmpty" Mode="In" Type="String" />
+            <Parameter Name="UpdateUserId" Mode="In" Type="String" />
+            <Parameter Name="SourceFormatString" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateFileDefinition">
+            <Parameter Name="FileId" Mode="In" Type="Int32" />
+            <Parameter Name="FileName" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="HeaderTemplate" Mode="In" Type="String" />
+            <Parameter Name="TrailerTemplate" Mode="In" Type="String" />
+            <Parameter Name="UpdateUserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateFileTransaction">
+            <Parameter Name="FileTransactionId" Mode="In" Type="Int32" />
+            <Parameter Name="FileId" Mode="In" Type="Int32" />
+            <Parameter Name="TransactionId" Mode="In" Type="Int32" />
+            <Parameter Name="UpdateUserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateRecord">
+            <Parameter Name="RecordId" Mode="In" Type="Int32" />
+            <Parameter Name="RecordName" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Template" Mode="In" Type="String" />
+            <Parameter Name="UpdateUserId" Mode="In" Type="String" />
+            <Parameter Name="RecordLength" Mode="In" Type="Int32" />
+            <Parameter Name="Identifier" Mode="In" Type="String" />
+            <Parameter Name="XML" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateRecordDefinition">
+            <Parameter Name="RecordDefinitionId" Mode="In" Type="Int32" />
+            <Parameter Name="RecordId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="ElementId" Mode="In" Type="Int32" />
+            <Parameter Name="Sequence" Mode="In" Type="Int32" />
+            <Parameter Name="Length" Mode="In" Type="Int32" />
+            <Parameter Name="DecimalPlaces" Mode="In" Type="Int32" />
+            <Parameter Name="Mandatory" Mode="In" Type="Boolean" />
+            <Parameter Name="UpdateUserId" Mode="In" Type="String" />
+            <Parameter Name="Line" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateTransaction">
+            <Parameter Name="TransactionId" Mode="In" Type="Int32" />
+            <Parameter Name="TransactionName" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="HeaderTemplate" Mode="In" Type="String" />
+            <Parameter Name="TrailerTemplate" Mode="In" Type="String" />
+            <Parameter Name="UpdateUserId" Mode="In" Type="String" />
+            <Parameter Name="HeaderLength" Mode="In" Type="Int32" />
+            <Parameter Name="TrailerLength" Mode="In" Type="Int32" />
+            <Parameter Name="HeaderCount" Mode="In" Type="Int32" />
+            <Parameter Name="TrailerCount" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateTransactionDefinition">
+            <Parameter Name="TransactionDefinitionId" Mode="In" Type="Int32" />
+            <Parameter Name="TransactionId" Mode="In" Type="Int32" />
+            <Parameter Name="RecordId" Mode="In" Type="Int32" />
+            <Parameter Name="Sequence" Mode="In" Type="Int32" />
+            <Parameter Name="MinOccurrences" Mode="In" Type="Int32" />
+            <Parameter Name="MaxOccurrences" Mode="In" Type="Int32" />
+            <Parameter Name="UpdateUserId" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="c227_FileProcessorModelStoreContainer" CdmEntityContainer="c227_FileProcessorEntities">
+          <EntitySetMapping Name="ca_consuming_application">
+            <EntityTypeMapping TypeName="c227_FileProcessorModel.ca_consuming_application">
+              <MappingFragment StoreEntitySet="ca_consuming_application">
+                <ScalarProperty Name="ConsumingApplicationId" ColumnName="ConsumingApplicationId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cas_consuming_application_settings">
+            <EntityTypeMapping TypeName="c227_FileProcessorModel.cas_consuming_application_settings">
+              <MappingFragment StoreEntitySet="cas_consuming_application_settings">
+                <ScalarProperty Name="ConsumingApplicationSettingId" ColumnName="ConsumingApplicationSettingId" />
+                <ScalarProperty Name="ConsumingApplicationId" ColumnName="ConsumingApplicationId" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ds_datasource">
+            <EntityTypeMapping TypeName="c227_FileProcessorModel.ds_datasource">
+              <MappingFragment StoreEntitySet="ds_datasource">
+                <ScalarProperty Name="DatasourceId" ColumnName="DatasourceId" />
+                <ScalarProperty Name="ConsumingApplicationId" ColumnName="ConsumingApplicationId" />
+                <ScalarProperty Name="Server" ColumnName="Server" />
+                <ScalarProperty Name="Catalog" ColumnName="Catalog" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ed_element_definition">
+            <EntityTypeMapping TypeName="c227_FileProcessorModel.ed_element_definition">
+              <MappingFragment StoreEntitySet="ed_element_definition">
+                <ScalarProperty Name="ElementId" ColumnName="ElementId" />
+                <ScalarProperty Name="ElementName" ColumnName="ElementName" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="FilePadType" ColumnName="FilePadType" />
+                <ScalarProperty Name="FilePadCharacter" ColumnName="FilePadCharacter" />
+                <ScalarProperty Name="FilePadCharacterOnEmpty" ColumnName="FilePadCharacterOnEmpty" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+                <ScalarProperty Name="SourceFormatString" ColumnName="SourceFormatString" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fd_file_definition">
+            <EntityTypeMapping TypeName="c227_FileProcessorModel.fd_file_definition">
+              <MappingFragment StoreEntitySet="fd_file_definition">
+                <ScalarProperty Name="FileId" ColumnName="FileId" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="HeaderTemplate" ColumnName="HeaderTemplate" />
+                <ScalarProperty Name="TrailerTemplate" ColumnName="TrailerTemplate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fr_record">
+            <EntityTypeMapping TypeName="c227_FileProcessorModel.fr_record">
+              <MappingFragment StoreEntitySet="fr_record">
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="RecordName" ColumnName="RecordName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Template" ColumnName="Template" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+                <ScalarProperty Name="RecordLength" ColumnName="RecordLength" />
+                <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+                <ScalarProperty Name="XML" ColumnName="XML" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="frd_record_definition">
+            <EntityTypeMapping TypeName="c227_FileProcessorModel.frd_record_definition">
+              <MappingFragment StoreEntitySet="frd_record_definition">
+                <ScalarProperty Name="RecordDefinitionId" ColumnName="RecordDefinitionId" />
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ElementId" ColumnName="ElementId" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="DecimalPlaces" ColumnName="DecimalPlaces" />
+                <ScalarProperty Name="Mandatory" ColumnName="Mandatory" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+                <ScalarProperty Name="Line" ColumnName="Line" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ft_file_transaction">
+            <EntityTypeMapping TypeName="c227_FileProcessorModel.ft_file_transaction">
+              <MappingFragment StoreEntitySet="ft_file_transaction">
+                <ScalarProperty Name="FileTransactionId" ColumnName="FileTransactionId" />
+                <ScalarProperty Name="FileId" ColumnName="FileId" />
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ft_transaction">
+            <EntityTypeMapping TypeName="c227_FileProcessorModel.ft_transaction">
+              <MappingFragment StoreEntitySet="ft_transaction">
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+                <ScalarProperty Name="TransactionName" ColumnName="TransactionName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="HeaderTemplate" ColumnName="HeaderTemplate" />
+                <ScalarProperty Name="TrailerTemplate" ColumnName="TrailerTemplate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+                <ScalarProperty Name="HeaderLength" ColumnName="HeaderLength" />
+                <ScalarProperty Name="TrailerLength" ColumnName="TrailerLength" />
+                <ScalarProperty Name="HeaderCount" ColumnName="HeaderCount" />
+                <ScalarProperty Name="TrailerCount" ColumnName="TrailerCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ftd_transaction_definition">
+            <EntityTypeMapping TypeName="c227_FileProcessorModel.ftd_transaction_definition">
+              <MappingFragment StoreEntitySet="ftd_transaction_definition">
+                <ScalarProperty Name="TransactionDefinitionId" ColumnName="TransactionDefinitionId" />
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="MinOccurrences" ColumnName="MinOccurrences" />
+                <ScalarProperty Name="MaxOccurrences" ColumnName="MaxOccurrences" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sp_stored_procedure">
+            <EntityTypeMapping TypeName="c227_FileProcessorModel.sp_stored_procedure">
+              <MappingFragment StoreEntitySet="sp_stored_procedure">
+                <ScalarProperty Name="StoredProcedureId" ColumnName="StoredProcedureId" />
+                <ScalarProperty Name="Schema" ColumnName="Schema" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteConsumingApplication" FunctionName="c227_FileProcessorModel.Store.DeleteConsumingApplication" />
+          <FunctionImportMapping FunctionImportName="DeleteConsumingApplicationSetting" FunctionName="c227_FileProcessorModel.Store.DeleteConsumingApplicationSetting" />
+          <FunctionImportMapping FunctionImportName="DeleteDatasource" FunctionName="c227_FileProcessorModel.Store.DeleteDatasource" />
+          <FunctionImportMapping FunctionImportName="DeleteElementDefinition" FunctionName="c227_FileProcessorModel.Store.DeleteElementDefinition" />
+          <FunctionImportMapping FunctionImportName="DeleteFileDefinition" FunctionName="c227_FileProcessorModel.Store.DeleteFileDefinition" />
+          <FunctionImportMapping FunctionImportName="DeleteFileTransaction" FunctionName="c227_FileProcessorModel.Store.DeleteFileTransaction" />
+          <FunctionImportMapping FunctionImportName="DeleteRecord" FunctionName="c227_FileProcessorModel.Store.DeleteRecord" />
+          <FunctionImportMapping FunctionImportName="DeleteRecordDefinition" FunctionName="c227_FileProcessorModel.Store.DeleteRecordDefinition" />
+          <FunctionImportMapping FunctionImportName="DeleteTransaction" FunctionName="c227_FileProcessorModel.Store.DeleteTransaction" />
+          <FunctionImportMapping FunctionImportName="DeleteTransactionDefinition" FunctionName="c227_FileProcessorModel.Store.DeleteTransactionDefinition" />
+          <FunctionImportMapping FunctionImportName="GetConsumingApplications" FunctionName="c227_FileProcessorModel.Store.GetConsumingApplications" />
+          <FunctionImportMapping FunctionImportName="GetConsumingApplicationSettings" FunctionName="c227_FileProcessorModel.Store.GetConsumingApplicationSettings" />
+          <FunctionImportMapping FunctionImportName="GetDatasources" FunctionName="c227_FileProcessorModel.Store.GetDatasources" />
+          <FunctionImportMapping FunctionImportName="GetElementDefinitions" FunctionName="c227_FileProcessorModel.Store.GetElementDefinitions" />
+          <FunctionImportMapping FunctionImportName="GetFileDefinitions" FunctionName="c227_FileProcessorModel.Store.GetFileDefinitions" />
+          <FunctionImportMapping FunctionImportName="GetFileDefLastUpdatedDate" FunctionName="c227_FileProcessorModel.Store.GetFileDefLastUpdatedDate" />
+          <FunctionImportMapping FunctionImportName="GetFileTransactions" FunctionName="c227_FileProcessorModel.Store.GetFileTransactions" />
+          <FunctionImportMapping FunctionImportName="GetRecordDefinitions" FunctionName="c227_FileProcessorModel.Store.GetRecordDefinitions" />
+          <FunctionImportMapping FunctionImportName="GetRecords" FunctionName="c227_FileProcessorModel.Store.GetRecords" />
+          <FunctionImportMapping FunctionImportName="GetTransactionDefinitions" FunctionName="c227_FileProcessorModel.Store.GetTransactionDefinitions" />
+          <FunctionImportMapping FunctionImportName="GetTransactions" FunctionName="c227_FileProcessorModel.Store.GetTransactions" />
+          <FunctionImportMapping FunctionImportName="InsertConsumingApplication" FunctionName="c227_FileProcessorModel.Store.InsertConsumingApplication" />
+          <FunctionImportMapping FunctionImportName="InsertConsumingApplicationSetting" FunctionName="c227_FileProcessorModel.Store.InsertConsumingApplicationSetting" />
+          <FunctionImportMapping FunctionImportName="InsertDatasource" FunctionName="c227_FileProcessorModel.Store.InsertDatasource" />
+          <FunctionImportMapping FunctionImportName="InsertElementDefinition" FunctionName="c227_FileProcessorModel.Store.InsertElementDefinition" />
+          <FunctionImportMapping FunctionImportName="InsertFileDefinition" FunctionName="c227_FileProcessorModel.Store.InsertFileDefinition" />
+          <FunctionImportMapping FunctionImportName="InsertFileTransaction" FunctionName="c227_FileProcessorModel.Store.InsertFileTransaction" />
+          <FunctionImportMapping FunctionImportName="InsertRecord" FunctionName="c227_FileProcessorModel.Store.InsertRecord" />
+          <FunctionImportMapping FunctionImportName="InsertRecordDefinition" FunctionName="c227_FileProcessorModel.Store.InsertRecordDefinition" />
+          <FunctionImportMapping FunctionImportName="InsertTransaction" FunctionName="c227_FileProcessorModel.Store.InsertTransaction" />
+          <FunctionImportMapping FunctionImportName="InsertTransactionDefinition" FunctionName="c227_FileProcessorModel.Store.InsertTransactionDefinition" />
+          <FunctionImportMapping FunctionImportName="UpdateConsumingApplication" FunctionName="c227_FileProcessorModel.Store.UpdateConsumingApplication" />
+          <FunctionImportMapping FunctionImportName="UpdateConsumingApplicationSetting" FunctionName="c227_FileProcessorModel.Store.UpdateConsumingApplicationSetting" />
+          <FunctionImportMapping FunctionImportName="UpdateDatasource" FunctionName="c227_FileProcessorModel.Store.UpdateDatasource" />
+          <FunctionImportMapping FunctionImportName="UpdateElementDefinition" FunctionName="c227_FileProcessorModel.Store.UpdateElementDefinition" />
+          <FunctionImportMapping FunctionImportName="UpdateFileDefinition" FunctionName="c227_FileProcessorModel.Store.UpdateFileDefinition" />
+          <FunctionImportMapping FunctionImportName="UpdateFileTransaction" FunctionName="c227_FileProcessorModel.Store.UpdateFileTransaction" />
+          <FunctionImportMapping FunctionImportName="UpdateRecord" FunctionName="c227_FileProcessorModel.Store.UpdateRecord" />
+          <FunctionImportMapping FunctionImportName="UpdateRecordDefinition" FunctionName="c227_FileProcessorModel.Store.UpdateRecordDefinition" />
+          <FunctionImportMapping FunctionImportName="UpdateTransaction" FunctionName="c227_FileProcessorModel.Store.UpdateTransaction" />
+          <FunctionImportMapping FunctionImportName="UpdateTransactionDefinition" FunctionName="c227_FileProcessorModel.Store.UpdateTransactionDefinition" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
