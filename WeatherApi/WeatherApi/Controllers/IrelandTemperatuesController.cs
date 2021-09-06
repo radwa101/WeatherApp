@@ -30,6 +30,7 @@ namespace WeatherApi.Controllers
             return _htmlScraper.GetCities(htmlContents);
         }
 
+
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
